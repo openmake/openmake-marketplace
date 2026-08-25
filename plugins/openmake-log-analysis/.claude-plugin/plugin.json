@@ -1,0 +1,9 @@
+{
+  "name": "openmake-log-analysis",
+  "version": "1.0.0",
+  "description": "openmake_llm 에서 만든 로그 분석 스킬 묶음 (Nginx·CSV) + DuckDuckGo MCP",
+  "author": {
+    "name": "OpenMake",
+    "url": "https://github.com/openmake"
+  }
+}

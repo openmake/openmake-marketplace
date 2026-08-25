@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "mcp-duckduckgo": {
+      "command": "uvx",
+      "args": [
+        "duckduckgo-mcp-server"
+      ]
+    }
+  }
+}

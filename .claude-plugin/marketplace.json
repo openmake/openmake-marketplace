@@ -149,6 +149,12 @@
         "url": "https://github.com/gemini-cli-extensions/code-review.git",
         "ref": "dd1a10d2c9d07b2ebade866590fdfa59cd8f9d04"
       }
+    },
+    {
+      "name": "openmake-log-analysis",
+      "description": "openmake_llm 에서 만든 로그 분석 스킬 묶음 (Nginx·CSV) + DuckDuckGo MCP",
+      "category": "data-analysis",
+      "source": "./plugins/openmake-log-analysis"
     }
   ]
 }

@@ -16,7 +16,7 @@
         "source": "git-subdir",
         "url": "https://github.com/anthropics/claude-plugins-official.git",
         "path": "plugins/claude-security",
-        "ref": "340e33aef211d95769d252324854497af871dafe"
+        "ref": "3deb821cb71ccfaaf2ffa9935e977df314ce5cd5"
       }
     },
     {
@@ -28,7 +28,7 @@
         "source": "git-subdir",
         "url": "https://github.com/anthropics/claude-plugins-official.git",
         "path": "plugins/plugin-dev",
-        "ref": "340e33aef211d95769d252324854497af871dafe"
+        "ref": "3deb821cb71ccfaaf2ffa9935e977df314ce5cd5"
       }
     },
     {
@@ -40,7 +40,7 @@
         "source": "git-subdir",
         "url": "https://github.com/anthropics/claude-plugins-official.git",
         "path": "plugins/hookify",
-        "ref": "340e33aef211d95769d252324854497af871dafe"
+        "ref": "3deb821cb71ccfaaf2ffa9935e977df314ce5cd5"
       }
     },
     {
@@ -52,7 +52,7 @@
         "source": "git-subdir",
         "url": "https://github.com/anthropics/claude-plugins-official.git",
         "path": "plugins/math-olympiad",
-        "ref": "340e33aef211d95769d252324854497af871dafe"
+        "ref": "3deb821cb71ccfaaf2ffa9935e977df314ce5cd5"
       }
     },
     {
@@ -64,7 +64,7 @@
         "source": "git-subdir",
         "url": "https://github.com/anthropics/knowledge-work-plugins.git",
         "path": "design",
-        "ref": "16d1ab59994b6ab9a9066f063f4264c76eff9dc8"
+        "ref": "a6d8653261a4cf3353c145648fece23bad949278"
       }
     },
     {
@@ -88,7 +88,7 @@
         "source": "git-subdir",
         "url": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills.git",
         "path": "plugins/productivity/cli-power-skills",
-        "ref": "ce544d89739ba43bf2399258632b0e7ef2bd62df"
+        "ref": "70319dd06c76bca3b4da97633fec02c1452473e2"
       }
     },
     {
@@ -100,7 +100,7 @@
         "source": "git-subdir",
         "url": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills.git",
         "path": "plugins/packages/ai-ml-engineering-pack",
-        "ref": "ce544d89739ba43bf2399258632b0e7ef2bd62df"
+        "ref": "70319dd06c76bca3b4da97633fec02c1452473e2"
       }
     },
     {
@@ -112,7 +112,7 @@
         "source": "git-subdir",
         "url": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills.git",
         "path": "plugins/ai-ml/ai-sdk-agents",
-        "ref": "ce544d89739ba43bf2399258632b0e7ef2bd62df"
+        "ref": "70319dd06c76bca3b4da97633fec02c1452473e2"
       }
     },
     {
@@ -124,7 +124,7 @@
         "source": "git-subdir",
         "url": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills.git",
         "path": "plugins/ai-ml/anomaly-detection-system",
-        "ref": "57800272b20e4321ff5286b9a7f9f48fcd2c913d"
+        "ref": "70319dd06c76bca3b4da97633fec02c1452473e2"
       }
     },
     {
@@ -136,7 +136,7 @@
         "source": "git-subdir",
         "url": "https://github.com/QwenLM/Qwen-MM-Plugins.git",
         "path": "src/capabilities/core",
-        "ref": "ec9fbd1e11a30841685b949863e9d9d30cd7a4d8"
+        "ref": "ad8139d58ebca5740df2be3a6871a2e9c1d31e36"
       }
     },
     {

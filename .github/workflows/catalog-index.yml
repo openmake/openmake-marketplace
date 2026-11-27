@@ -1,0 +1,69 @@
+# Build the static catalog index (index.json) and publish it as an asset of the rolling `catalog-index` release.
+# openmake_llm reads it with one request: set the catalog source's index URL to
+#   https://github.com/openmake/openmake-marketplace/releases/download/catalog-index/index.json
+# and turn on EXTENSION_CATALOG_INDEX_ENABLED. If the index is missing or its hashes do not match, the app falls back
+# to the regular (GitHub API) sync — so a failed run here never breaks catalog sync.
+name: catalog-index
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.claude-plugin/marketplace.json'
+      - 'plugins/**'
+      - 'scripts/build-index.mjs'
+      - 'schema/**'
+      - '.github/workflows/catalog-index.yml'
+  pull_request:
+    paths:
+      - '.claude-plugin/marketplace.json'
+      - 'plugins/**'
+      - 'scripts/build-index.mjs'
+      - 'schema/**'
+      - '.github/workflows/catalog-index.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: catalog-index-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '26'
+      - name: Build index
+        run: node scripts/build-index.mjs --out dist/index.json
+      - name: Verify index
+        run: node scripts/build-index.mjs --verify dist/index.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: catalog-index
+          path: dist/index.json
+          retention-days: 7
+  publish:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: catalog-index
+          path: dist
+      - name: Publish to the catalog-index release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if ! gh release view catalog-index >/dev/null 2>&1; then
+            gh release create catalog-index --title "Catalog index" --latest=false \
+              --notes "Rolling static catalog index (index.json) — rebuilt on every change to main. Format: schema/catalog-index.v1.schema.json"
+          fi
+          gh release upload catalog-index dist/index.json --clobber
